@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    height: 100%;
+}
+
+/*NAVBAR*/
+
+.navbar {
+    height: 100%;
+    width: 20%;
+    top: 0;
+    left: 0;
+    background-color: #01315a;
+    overflow: hidden;
+    transform: translate(-100%, 0);
+    -webkit-transform: translate(-100%,0);
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.navbar h2 {
+    padding: 20px 0px;
+    text-align: center;
+    color: #0074d9;
+}
+
+nav a {
+    -webkit-transition: all 0.5s; /*Chrome, Safari*/
+    transition: all 0.5s; /*Firefox, IE, Opera*/
+    display: block;
+    color: #0275d8;
+    text-align: center;
+    padding: 40px 0px;
+    text-decoration: none;
+    border-bottom: 1px solid #245269;
+    font-size: 20px;
+}
+
+nav a:hover {
+    transform: scale(1.2); /*Firefox, IE*/
+    -webkit-transform: scale(1.2); /*Chrome, Opera, Safari*/
+    color: #245269;
+}
+
+.menu-toggle {
+    margin-top: 10px;
+}
+
+.text {
+    text-align: center;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+}

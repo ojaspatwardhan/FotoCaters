@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="OffCanvasMenu.css">
+</head>
+<body>
+<div class="container">
+    <div class="text">
+        <h1>Hi</h1>
+
+    </div>
+    <button class="menu-toggle">Click Here</button>
+</div>
+<div class="navbar">
+    <h2>Menu</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Gallery</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+    </nav>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var menu="close";
+        $(".menu-toggle").click(function() {
+            if(menu == "close"){
+                $(".navbar").css('-webkit-transform', 'translate(0,0)');
+                menu="open";
+            }
+            else {
+                $(".navbar").css('-webkit-transform', 'translate(-100%,0)');
+                menu="close";
+            }
+        });
+
+    });
+</script>
+</body>
+</html>
