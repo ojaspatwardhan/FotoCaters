@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="OffCanvasMenu.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
+<style> 
+body {
+	background-color: rgb(51,51,51);
+}
+</style>
 <body>
-<div class="container">
-    <div class="text">
-        <h1>Hi</h1>
-
-    </div>
-    <button class="menu-toggle">Click Here</button>
+<div class="header">
+<h1>FotoCaters</h1>
+</div>
+<!--<div class="container">-->
+<video autoplay loop muted id="background">
+<source src="../../Desktop/big-buck-bunny_trailer.webm" type="video/webm">
+</video>
+	<div class="menu">
+    <button type="button" class="tcon tcon-menu--xcross menu-toggle" aria-label="toggle menu">
+  <span class="tcon-menu__lines" aria-hidden="true"></span>
+  <span class="tcon-visuallyhidden">toggle menu</span>
+</button>
+	</div>
+    <!--</div>-->
 </div>
 <div class="navbar">
-    <h2>Menu</h2>
+    <h2><i class="material-icons">menu</i>Menu</h2>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Gallery</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+        <a href="#"><i class="material-icons">home</i>Home</a>
+        <a href="file:///C:/Users/w560376/Desktop/GammaGallery/index.html"><i class="material-icons">photo_library</i>Gallery</a>
+        <a href="#"><i class="material-icons">business</i>About Us</a>
+        <a href="file:///C:/Users/w560376/Desktop/about_us.html"><i class="material-icons">contact_phone</i>Contact Us</a>
     </nav>
 </div>
+<script src="../../Desktop/GammaGallery/demo1.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -35,9 +51,12 @@
                 $(".navbar").css('-webkit-transform', 'translate(-100%,0)');
                 menu="close";
             }
+			
         });
+				
 
     });
+	
 </script>
 </body>
 </html>
