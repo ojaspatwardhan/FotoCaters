@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <style>
+  body {
+	  background-color:
+  }
+  .navbar-animate{
+	  transform:translateY(-100%);
+	  transition:all 0.2s linear;
+  }
+  
+  /*nav:hover {
+	  transform:translateY(0);
+  }
+  
+  /*.album {
+	  display:table;
+	  position:relative;
+	  top:500px;
+	  left:30%;
+	  width:150px;
+	  height:200px;
+	  border:solid #000000 1px;
+	  border-radius:30%;
+  }*/
+  
+  .desc {
+	  display:table-cell;
+	  text-align:center;
+	  vertical-align:middle;
+	  opacity:0;	
+	  transition:all 0.2s linear;
+  }
+  
+  .album:hover .desc{
+	  opacity:1;
+  }
+  
+  /*.spacing {
+	  margin-left:15%;
+	  position:absolute;
+ }*/
+ 
+ /*#album {
+	 position:absolute;
+	 top:60%;
+	 width:100%;
+	 height:50%;
+	 border:solid 1px #000000;
+	 display:inline-block;
+ }*/
+ 
+ .flip-container {
+	 perspective:1000;
+	 box-shadow: 6px 6px 6px;
+ }
+ 
+ .flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+	
+	.front,.back,.flip-container {
+		position:relative;
+		/*top:420px;
+		left:30%;*/
+		border:solid 1px #CACACA;
+		border-radius:30%;
+		width:200px;
+		height:200px;
+	}
+	
+	.flipper {
+		transition:all 0.5s;
+		transform-style:preserve-3d;
+		position:relative;
+	}
+	
+	.front, .back {
+		backface-visibility:hidden;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	
+	.front {
+		/*display:table;*/
+		z-index:2;
+		transform:rotateY(0deg);
+	}
+	
+	.back {
+		display:table;
+		transform:rotateY(180deg);
+	}
+	
+	.back p{
+		display:table-cell;
+		text-align:center;
+		vertical-align:middle;
+	}
+	
+	.front p{
+		display:table-cell;
+		text-align:center;
+		vertical-align:middle;
+	}
+	
+	div.front > img {
+		width:inherit;
+		height:inherit;
+		border-radius:30%;
+	}
+	
+	#menu {
+		position:absolute; 
+		left:50%; 
+		top:100%;
+	}
+	
+	.tcon {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 40px;
+  transition: 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 40px;
+  background: transparent;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; }
+  .tcon > * {
+    display: block; }
+  .tcon:hover, .tcon:focus {
+    outline: none; }
+  .tcon::-moz-focus-inner {
+    border: 0; }
+
+.tcon-menu__lines {
+  display: inline-block;
+  height: 5.71429px;
+  width: 40px;
+  border-radius: 2.85714px;
+  transition: 0.3s;
+  background: black;
+  position: relative; 
+  }
+  .tcon-menu__lines::before, .tcon-menu__lines::after {
+    display: inline-block;
+    height: 5.71429px;
+    width: 40px;
+    border-radius: 2.85714px;
+    transition: 0.3s;
+    background: black;
+    content: '';
+    position: absolute;
+    left: 0;
+    -webkit-transform-origin: 2.85714px center;
+    transform-origin: 2.85714px center;
+    width: 100%; }
+  .tcon-menu__lines::before {
+    top: 10px; 
+	}
+  .tcon-menu__lines::after {
+    top: -10px; 
+	}
+  .tcon-transform .tcon-menu__lines {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8);
+    transform: scale3d(0.8, 0.8, 0.8); 
+	}
+
+.tcon-menu--arrow {
+  width: auto; }
+  .tcon-menu--arrow.tcon-transform .tcon-menu__lines::before, .tcon-menu--arrow.tcon-transform .tcon-menu__lines::after {
+    top: 0;
+    width: 22.22222px; 
+	}
+  .tcon-menu--arrow.tcon-transform .tcon-menu__lines::before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg); 
+	}
+  .tcon-menu--arrow.tcon-transform .tcon-menu__lines::after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg); 
+	}
+
+.tcon-menu--arrowup {
+  width: auto; }
+  .tcon-menu--arrowup.tcon-transform {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+    transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg); 
+	}
+
+.tcon-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; 
+  }
+  .tcon-visuallyhidden:active, .tcon-visuallyhidden:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto; 
+	}
+	.footer {
+		border-top:solid 1px #000000;
+		width:100%;
+		height:20%;
+		position:absolute;
+		margin-top:45%;
+		left:0;
+	}
+	
+	.footer-div {
+		margin-top:50px;
+		left:20%;
+	}
+	
+	li.dropdown {
+		z-index:10;
+	}
+	
+	div.footer-div > img {
+		transition:all 0.3s linear;
+	}
+	
+	div.footer-div > img:hover {
+		/*transform:scale(1.2,1.2)*/;
+		cursor:pointer;
+		animation:spinAround 1.5s linear infinite; /* optional rotation animation */
+	}
+	
+	@keyframes spinAround {
+		from{
+			transform:rotate(0deg);
+			}
+			
+		to{
+			transform:rotate(360deg);
+			}
+	}
+	
+	.col-md-4{
+		left:8%;
+		top:600px;
+		}
+  </style>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Untitled Document</title>
+    <!-- Bootstrap -->
+	<link href="../Desktop/Dreamweaver/css/bootstrap.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<script src="../Desktop/Dreamweaver/js/jquery-1.11.2.min.js"></script>
+    <nav class="navbar navbar-inverse navbar-animate">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <a class="navbar-brand" href="#">Brand</a></div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="inverseNavbar1">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Link<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Portfolio<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="#">Gallery</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <button id="menu" type="button" class="tcon tcon-menu--arrow tcon-menu--arrowup" aria-label="toggle menu">
+  <span class="tcon-menu__lines" aria-hidden="true"></span>
+  <span class="tcon-visuallyhidden">toggle menu</span>
+</button>
+      <!-- /.container-fluid -->
+    </nav>
+    <br>
+    <div id="carousel1" class="carousel slide" data-ride="carousel" style="width:80%; position:absolute; left:10%; margin-top:10%;">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel1" data-slide-to="1"></li>
+        <li data-target="#carousel1" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active"><img src="images/Carousel_Placeholder.png" alt="First slide image" class="center-block">
+          <div class="carousel-caption">
+            <h3>First slide Heading</h3>
+            <p>First slide Caption</p>
+          </div>
+        </div>
+        <div class="item"><img src="images/Carousel_Placeholder.png" alt="Second slide image" class="center-block">
+          <div class="carousel-caption">
+            <h3>Second slide Heading</h3>
+            <p>Second slide Caption</p>
+          </div>
+        </div>
+        <div class="item"><img src="images/Carousel_Placeholder.png" alt="Third slide image" class="center-block">
+          <div class="carousel-caption">
+            <h3>Third slide Heading</h3>
+            <p>Third slide Caption</p>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+      </div>
+      <!-- Carousel End -->
+      <!-- Album divs -->
+      <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-4">
+      <div class="flip-container">
+      <div class="flipper">
+      <div class="front"><!-- front content --><img src="../Desktop/74120_1456604851.jpg" alt=""></div>
+      <div class="back"><!-- back content --><p>Desc</p> </div>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="flip-container">
+      <div class="flipper">
+      <div class="front"><!-- front content --> <img src="../Desktop/71328_1456601971.jpg" alt=""></div>
+      <div class="back"><!-- back content --></div>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="flip-container">
+      <div class="flipper">
+      <div class="front"><!-- front content --></div>
+      <div class="back"><!-- back content --></div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <br>
+      <div class="row">
+      <div class="col-md-4">
+      <div class="flip-container">
+      <div class="flipper">
+      <div class="front"><!-- front content --></div>
+      <div class="back"><!-- back content --></div>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="flip-container">
+      <div class="flipper">
+      <div class="front"><!-- front content --></div>
+      <div class="back"><!-- back content --></div>
+      </div>
+      </div>
+      </div>
+      <div class="col-md-4">
+      <div class="flip-container">
+      <div class="flipper">
+      <div class="front"><!-- front content --></div>
+      <div class="back"><!-- back content --></div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- Container fluid end -->
+   
+      <!-- footer code -->
+      <div class="container-fluid footer">
+      <div class="row">
+      <div class="col-xs-2 footer-div"><img src="../Downloads/social (1).png" alt=""></div>
+      <div class="col-xs-2 footer-div"><img src="../Downloads/picture (1).png" alt=""></div>
+      <div class="col-xs-2 footer-div"><img src="../Downloads/circle.png" alt=""></div>
+      <div class="col-xs-2 footer-div"><img src="../Downloads/social (2).png" alt=""></div>
+      </div>
+      </div>
+      <div style="margin-top:50%; left:50%; position:absolute;"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="400" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></div>
+  <!-- Include all compiled plugins (below), or include individual files as needed --> 
+	<script src="../Desktop/Dreamweaver/js/bootstrap.js"></script>
+    <script>
+	/* code for dropdown menu problem */
+    $(document).ready(function(e) {
+        /* menu toggle code */
+		var menu="close";
+		$("#menu").click(function() {
+			if(menu=="close")
+			{
+				$(".navbar-animate").css("transform", "translateY(0)");
+				menu="open";
+			}
+			else {
+				$(".navbar-animate").css("transform", "translateY(-100%)")
+				menu="close";
+				}
+		});
+    });
+	
+	!function(n,r){"function"==typeof define&&define.amd?define(r):"object"==typeof exports?module.exports=r():n.transformicons=r()}(this||window,function(){"use strict";var n={},r="tcon-transform",t={transform:["click"],revert:["click"]},e=function(n){return"string"==typeof n?Array.prototype.slice.call(document.querySelectorAll(n)):"undefined"==typeof n||n instanceof Array?n:[n]},o=function(n){return"string"==typeof n?n.toLowerCase().split(" "):n},f=function(n,r,f){var c=(f?"remove":"add")+"EventListener",u=e(n),s=u.length,a={};for(var l in t)a[l]=r&&r[l]?o(r[l]):t[l];for(;s--;)for(var d in a)for(var v=a[d].length;v--;)u[s][c](a[d][v],i)},i=function(r){n.toggle(r.currentTarget)};return n.add=function(r,t){return f(r,t),n},n.remove=function(r,t){return f(r,t,!0),n},n.transform=function(t){return e(t).forEach(function(n){n.classList.add(r)}),n},n.revert=function(t){return e(t).forEach(function(n){n.classList.remove(r)}),n},n.toggle=function(t){return e(t).forEach(function(t){n[t.classList.contains(r)?"revert":"transform"](t)}),n},n});
+    </script>
+    <script src="site/js/transformicons.js"></script>
+    <script>transformicons.add('.tcon')</script>
+    
+  </body>
+</html>
