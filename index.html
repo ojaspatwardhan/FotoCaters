@@ -266,6 +266,40 @@
 		left:8%;
 		top:600px;
 		}
+		
+	.col-md-12 p{
+		position:absolute;
+		left:45%;
+		margin-top:1%;
+		text-decoration:none;
+		font-weight:bold
+		}
+		
+	#phone{
+		margin-left:20%;
+		width:100px;
+		height:100px;
+		border:solid 1px #000000;
+		}
+		
+		.title{
+			font:16px "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+			margin-top:20px;
+			text-align:center;
+			}
+			
+	#phone p{
+		font:16px "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+		margin-top:20px;
+		text-align:center;
+		}
+		
+	#address{
+		width:200px;
+		height:200px;
+		border:solid 1px #000000;
+		margin-left:12%;
+		}
   </style>
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -282,15 +316,7 @@
 		<![endif]-->
   </head>
   <body>
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="../Desktop/Dreamweaver/js/jquery-1.11.2.min.js"></script>
     <nav class="navbar navbar-inverse navbar-animate">
       <div class="container-fluid">
@@ -337,6 +363,7 @@
         </div>
         <!-- /.navbar-collapse -->
       </div>
+      <!-- Hamburger Menu button code -->
       <button id="menu" type="button" class="tcon tcon-menu--arrow tcon-menu--arrowup" aria-label="toggle menu">
   <span class="tcon-menu__lines" aria-hidden="true"></span>
   <span class="tcon-visuallyhidden">toggle menu</span>
@@ -434,12 +461,25 @@
       <!-- footer code -->
       <div class="container-fluid footer">
       <div class="row">
+      <div class="col-md-12"><p>Social Media</p></div>
+      </div>
+      <div class="row">
       <div class="col-xs-2 footer-div"><img src="../Downloads/social (1).png" alt=""></div>
       <div class="col-xs-2 footer-div"><img src="../Downloads/picture (1).png" alt=""></div>
       <div class="col-xs-2 footer-div"><img src="../Downloads/circle.png" alt=""></div>
       <div class="col-xs-2 footer-div"><img src="../Downloads/social (2).png" alt=""></div>
       </div>
+      <div class="row" style="margin-top:5%;">
+      <div class="col-md-5" id="phone">
+      <div class="title">Telephone</div>
+      <p>phone no.</p>
       </div>
+      <div class="col-md-5" id="address">
+      <div class="title">Address</div>
+      </div>
+      </div>
+      </div>
+      
       <div style="margin-top:50%; left:50%; position:absolute;"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="400" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></div>
   <!-- Include all compiled plugins (below), or include individual files as needed --> 
 	<script src="../Desktop/Dreamweaver/js/bootstrap.js"></script>
@@ -463,8 +503,8 @@
 	
 	!function(n,r){"function"==typeof define&&define.amd?define(r):"object"==typeof exports?module.exports=r():n.transformicons=r()}(this||window,function(){"use strict";var n={},r="tcon-transform",t={transform:["click"],revert:["click"]},e=function(n){return"string"==typeof n?Array.prototype.slice.call(document.querySelectorAll(n)):"undefined"==typeof n||n instanceof Array?n:[n]},o=function(n){return"string"==typeof n?n.toLowerCase().split(" "):n},f=function(n,r,f){var c=(f?"remove":"add")+"EventListener",u=e(n),s=u.length,a={};for(var l in t)a[l]=r&&r[l]?o(r[l]):t[l];for(;s--;)for(var d in a)for(var v=a[d].length;v--;)u[s][c](a[d][v],i)},i=function(r){n.toggle(r.currentTarget)};return n.add=function(r,t){return f(r,t),n},n.remove=function(r,t){return f(r,t,!0),n},n.transform=function(t){return e(t).forEach(function(n){n.classList.add(r)}),n},n.revert=function(t){return e(t).forEach(function(n){n.classList.remove(r)}),n},n.toggle=function(t){return e(t).forEach(function(t){n[t.classList.contains(r)?"revert":"transform"](t)}),n},n});
     </script>
-    <script src="site/js/transformicons.js"></script>
-    <script>transformicons.add('.tcon')</script>
+    <script defer>transformicons.add('.tcon')</script>
+    <script src="site/js/transformicons.js" defer></script>
     
   </body>
 </html>
